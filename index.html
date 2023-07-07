@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Etch-a-Sketch</title>
+    <style>
+      body {
+        font-family: roboto;
+        background-color: #4600a6;
+        margin: auto;
+        padding: auto;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 600px;
+        margin: 0 auto;
+        padding: 10px;
+        margin-top: 50px;
+        border-radius: 10px;
+        /* border: solid 2px transparent; */
+        /* box-shadow: rgba(111, 0, 255, 0.16) 0px 3px 6px,
+          rgba(111, 0, 255, 0.23) 0px 3px 6px; */
+      }
+
+      .grid-square {
+        width: 60px;
+        height: 60px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        transition: background-color 0.3s, opacity 0.3s;
+      }
+
+      .darken {
+        filter: brightness(0.9);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <input type="range" id="slider" min="10" max="100" value="50"> -->
+    <button onclick="createGrid()">Create New Grid</button>
+    <div class="container"></div>
+
+    <script src="/Etch-a-Sketch/script.js"></script>
+  </body>
+</html>
