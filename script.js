@@ -78,31 +78,43 @@ function calculateBackgroundColor(darknessLevel) {
 }
 
 // Add a hover effect to the grid squares
+// Ajoutez un écouteur d'événement pour le hover avec la souris
 container.addEventListener("mouseover", function (event) {
-  if (event.target.classList.contains("grid-square")) {
+  handleHover(event.target);
+});
+
+// Ajoutez un écouteur d'événement pour les interactions tactiles
+container.addEventListener("touchstart", function (event) {
+  handleHover(event.target);
+});
+
+// Fonction pour gérer le hover
+function handleHover(target) {
+  if (target.classList.contains("grid-square")) {
     const currentColor = window
-      .getComputedStyle(event.target)
+      .getComputedStyle(target)
       .getPropertyValue("background-color");
     if (
       currentColor === "rgba(0, 0, 0, 0)" ||
       currentColor === "rgba(0, 0, 0, 0.1)"
     ) {
       const randomColor = getRandomColor();
-      event.target.style.backgroundColor = randomColor;
+      target.style.backgroundColor = randomColor;
     } else {
       const darkenColor = darkenRGB(currentColor);
-      event.target.style.backgroundColor = darkenColor;
+      target.style.backgroundColor = darkenColor;
     }
 
-    const currentOpacity = Number(event.target.style.opacity);
+    const currentOpacity = Number(target.style.opacity);
     const newOpacity = currentOpacity + 0.1;
-    event.target.style.opacity = newOpacity;
+    target.style.opacity = newOpacity;
 
     if (newOpacity >= 0.9) {
-      event.target.classList.add("darken");
+      target.classList.add("darken");
     }
   }
-});
+}
+ƒ
 
 // Function to generate a random color
 function getRandomColor() {
